@@ -208,48 +208,24 @@ with left:
 
 with right:
 
-    if selected_step == "STEP 1 - Start Job & Template":
+    image_map = {
+        "STEP 1 - Start Job & Template": "screenshots/step1.png",
+        "STEP 2 - Weather Setup": "screenshots/step2.png",
+        "STEP 3 - Room Load Rules": "screenshots/step3.png",
+        "STEP 4 - CAD Cleanup": "screenshots/step4.png",
+        "STEP 5 - Equipment Matchups": "screenshots/step5.png",
+        "STEP 6 - Equipment Sizing": "screenshots/step6.png",
+    }
 
-        st.image(
-            "screenshots/step1.png",
-            use_container_width=True
-        )
+    image_path = image_map.get(selected_step)
 
-    elif selected_step == "STEP 2 - Weather Setup":
+    st.markdown("### Screenshot / Reference Area")
 
-        st.image(
-            "screenshots/step2.png",
-            use_container_width=True
-        )
-
-    elif selected_step == "STEP 3 - Room Load Rules":
-
-        st.image(
-            "screenshots/step3.png",
-            use_container_width=True
-        )
-
-    elif selected_step == "STEP 4 - CAD Cleanup":
-
-        st.image(
-            "screenshots/step4.png",
-            use_container_width=True
-        )
-
-    elif selected_step == "STEP 5 - Equipment Matchups":
-
-        st.image(
-            "screenshots/step5.png",
-            use_container_width=True
-        )
-
-    elif selected_step == "STEP 6 - Equipment Sizing":
-
-        st.image(
-            "screenshots/step6.png",
-            use_container_width=True
-        )
-
+    if image_path:
+        try:
+            st.image(image_path, use_container_width=True)
+        except Exception:
+            st.info(f"Screenshot not uploaded yet: {image_path}")
 # ---------------- BUTTONS ---------------- #
 
 st.markdown("<br>", unsafe_allow_html=True)
