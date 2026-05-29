@@ -208,20 +208,47 @@ with left:
 
 with right:
 
-    st.markdown("""
-    <div class="step-card">
-        <div class="step-header">Screenshot / Reference Area</div>
-        <div class="step-body">
-            <div class="reference-box">
-                <div>
-                    <b>Screenshot / Reference Area</b><br><br>
-                    Insert Wrightsoft screenshots, CAD examples,<br>
-                    duct layouts, or QC examples here.
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    if selected_step == "STEP 1 - Start Job & Template":
+
+        st.image(
+            "screenshots/step1.png",
+            use_container_width=True
+        )
+
+    elif selected_step == "STEP 2 - Weather Setup":
+
+        st.image(
+            "screenshots/step2.png",
+            use_container_width=True
+        )
+
+    elif selected_step == "STEP 3 - Room Load Rules":
+
+        st.image(
+            "screenshots/step3.png",
+            use_container_width=True
+        )
+
+    elif selected_step == "STEP 4 - CAD Cleanup":
+
+        st.image(
+            "screenshots/step4.png",
+            use_container_width=True
+        )
+
+    elif selected_step == "STEP 5 - Equipment Matchups":
+
+        st.image(
+            "screenshots/step5.png",
+            use_container_width=True
+        )
+
+    elif selected_step == "STEP 6 - Equipment Sizing":
+
+        st.image(
+            "screenshots/step6.png",
+            use_container_width=True
+        )
 
 # ---------------- BUTTONS ---------------- #
 
