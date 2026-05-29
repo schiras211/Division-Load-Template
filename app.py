@@ -126,14 +126,166 @@ def bullet_list(items):
     for item in items:
         st.write("• " + item)
 
-# ---------------- HEADER ---------------- #
+def make_placeholder_steps(division_name, folder_name):
+    return {
+        "STEP 1 - CAD Cleanup": {
+            "items": [
+                {
+                    "title": f"{division_name} CAD cleanup rule",
+                    "rule": f"Add {division_name}-specific CAD cleanup rules here.",
+                    "details": [
+                        "Add division-specific CAD cleanup notes.",
+                        "Add screenshot references as needed."
+                    ],
+                    "images": [f"screenshots/{folder_name}/example.png"]
+                }
+            ]
+        },
 
-st.markdown("""
-<div class="main-header">
-    <h1>Wrightsoft Load Completion Guides</h1>
-    <p>Division-Specific Interactive Workflow</p>
-</div>
-""", unsafe_allow_html=True)
+        "STEP 2 - Project Setup & Notes": {
+            "items": [
+                {
+                    "title": f"{division_name} project setup rule",
+                    "rule": f"Add {division_name}-specific project setup rules here.",
+                    "details": [
+                        "Add template, notes, airflow, zoning, and POC rules here."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 3 - Weather, County & Ceiling Setup": {
+            "items": [
+                {
+                    "title": f"{division_name} weather setup",
+                    "rule": "Add weather, county, and ceiling setup rules here.",
+                    "details": [
+                        "Add Energy Star, county, weather station, foam, and non-foam rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 4 - Options & In-Lieu Rooms": {
+            "items": [
+                {
+                    "title": f"{division_name} option room rules",
+                    "rule": "Add option and in-lieu room rules here.",
+                    "details": [
+                        "Add naming, worst-case BTUH, windows, and option tonnage rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 5 - Room Load Rules": {
+            "items": [
+                {
+                    "title": f"{division_name} room load rules",
+                    "rule": "Add room-specific load rules here.",
+                    "details": [
+                        "Add WIC, pantry, foyer, blinds, insulation, and room placement rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 6 - Open To Below": {
+            "items": [
+                {
+                    "title": f"{division_name} OTB rules",
+                    "rule": "Add open-to-below rules here.",
+                    "details": [
+                        "Add square footage, temporary OTB, and boot placement rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 7 - Blower Door Settings": {
+            "items": [
+                {
+                    "title": f"{division_name} blower door setup",
+                    "rule": "Add blower door setup rules here.",
+                    "details": [
+                        "Add ACH, wind shielding, test pressure, and builder-specific settings."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 8 - Energy Star": {
+            "items": [
+                {
+                    "title": f"{division_name} Energy Star setup",
+                    "rule": "Add Energy Star setup rules here.",
+                    "details": [
+                        "Add fresh air, humidity, county, control location, and ventilation rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+            "items": [
+                {
+                    "title": f"{division_name} equipment matchup rules",
+                    "rule": "Add equipment matchup and airflow rules here.",
+                    "details": [
+                        "Add matchup, static pressure, airflow, manufacturer, and documentation rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 10 - Equipment Sizing": {
+            "items": [
+                {
+                    "title": f"{division_name} equipment sizing rules",
+                    "rule": "Add equipment sizing rules here.",
+                    "details": [
+                        "Add total capacity, sensible capacity, tonnage, and sq ft per ton rules."
+                    ],
+                    "images": []
+                }
+            ]
+        },
+
+        "STEP 11 - Internal Gains": {
+            "table": [
+                ["Bedroom", "Add division-specific value"],
+                ["Owner Suite", "Add division-specific value"],
+                ["Great Room / Family", "Add division-specific value"],
+                ["Kitchen", "Add division-specific value"],
+                ["Utility / Laundry", "Add division-specific value"],
+                ["Study / Office", "Add division-specific value"]
+            ],
+            "notes": [
+                f"Add {division_name}-specific internal gain rules here."
+            ]
+        },
+
+        "STEP 12 - Save & Handoff": {
+            "items": [
+                {
+                    "title": f"{division_name} save and handoff",
+                    "rule": "Add final save and handoff rules here.",
+                    "details": [
+                        "Add POC, PDF, review, and final completion rules."
+                    ],
+                    "images": []
+                }
+            ]
+        }
+    }
 
 # ---------------- DALLAS DATA ---------------- #
 
@@ -162,13 +314,13 @@ dallas_steps = {
                 "images": ["screenshots/Dallas/CAD Conversion 2.png"]
             },
             {
-                "title": "Do not create scattered separate files",
+                "title": "Use one CAD file",
                 "rule": "It should be one file with the right elevation and options all in one.",
                 "details": [
                     "Do not create multiple disconnected files for the same load.",
                     "The CAD should include the correct elevation and needed options in one file."
                 ],
-                "warning": "DO NOT DO THIS AT ALL: Do not make multiple scattered files.",
+                "warning": "DO NOT create scattered separate files.",
                 "images": ["screenshots/Dallas/do_not_do_this.png"]
             },
             {
@@ -227,19 +379,25 @@ dallas_steps = {
             {
                 "title": "Use 360 CFM per ton",
                 "rule": "Dallas loads should use 360 CFM per ton.",
-                "details": ["Verify airflow before final equipment selection."],
+                "details": [
+                    "Verify airflow before final equipment selection."
+                ],
                 "images": []
             },
             {
                 "title": "Keep humidity at 30/50",
                 "rule": "Keep the standard Dallas humidity setup at 30/50.",
-                "details": ["Do not change unless directed by project-specific requirements."],
+                "details": [
+                    "Do not change unless directed by project-specific requirements."
+                ],
                 "images": []
             },
             {
                 "title": "Zone all 2-story homes",
                 "rule": "All 2-story homes should be zoned.",
-                "details": ["Confirm zoning before finalizing the load."],
+                "details": [
+                    "Confirm zoning before finalizing the load."
+                ],
                 "images": []
             }
         ]
@@ -328,13 +486,17 @@ dallas_steps = {
             {
                 "title": "No blinds on loads",
                 "rule": "Do not apply blinds to Dallas loads.",
-                "details": ["Leave blinds off the load calculation."],
+                "details": [
+                    "Leave blinds off the load calculation."
+                ],
                 "images": []
             },
             {
                 "title": "R-3 exterior board insulation",
                 "rule": "If R-3 sheathing is on the specs, select exterior board insulation R-3.",
-                "details": ["This applies when specs show Sheathing 3/8 with R-3."],
+                "details": [
+                    "This applies when specs show Sheathing 3/8 with R-3."
+                ],
                 "images": []
             },
             {
@@ -350,7 +512,9 @@ dallas_steps = {
             {
                 "title": "Foyers should be separate rooms",
                 "rule": "Foyers should be their own room, even if very short.",
-                "details": ["Do not automatically merge foyer areas into nearby rooms."],
+                "details": [
+                    "Do not automatically merge foyer areas into nearby rooms."
+                ],
                 "images": []
             },
             {
@@ -462,7 +626,9 @@ dallas_steps = {
             {
                 "title": "Select correct equipment matchups",
                 "rule": "Select the correct Dallas matchups when placing equipment.",
-                "details": ["Confirm equipment is matched correctly before finalizing."],
+                "details": [
+                    "Confirm equipment is matched correctly before finalizing."
+                ],
                 "images": []
             },
             {
@@ -518,7 +684,9 @@ dallas_steps = {
                 "title": "105% total example",
                 "rule": "If load gives 105% total, usually do not upgrade if next ton requires too much BTUH.",
                 "example": "If load has 105% total and 98% sensible, do not upgrade tonnage.",
-                "details": ["Leave it how it is unless POC directs otherwise."],
+                "details": [
+                    "Leave it how it is unless POC directs otherwise."
+                ],
                 "images": []
             }
         ]
@@ -550,41 +718,16 @@ dallas_steps = {
             {
                 "title": "Save the load",
                 "rule": "Save the load before final handoff.",
-                "details": ["Do not hand off without saving."],
+                "details": [
+                    "Do not hand off without saving."
+                ],
                 "images": []
             },
             {
                 "title": "POC completes PDF portion",
                 "rule": "The POC will complete the PDF portion.",
-                "details": ["Estimator completes the load first."],
-                "images": []
-            }
-        ]
-    }
-}
-
-# ---------------- NEW DIVISION TEMPLATES ---------------- #
-
-dayton_steps = {
-    "STEP 1 - CAD Cleanup": {
-        "items": [
-            {
-                "title": "Dayton CAD cleanup rule",
-                "rule": "Add Dayton-specific CAD cleanup rule here.",
                 "details": [
-                    "Add Dayton-specific details here."
-                ],
-                "images": ["screenshots/Dayton/example.png"]
-            }
-        ]
-    },
-    "STEP 2 - Project Setup & Notes": {
-        "items": [
-            {
-                "title": "Dayton project setup rule",
-                "rule": "Add Dayton-specific project setup rule here.",
-                "details": [
-                    "Add Dayton-specific details here."
+                    "Estimator completes the load first."
                 ],
                 "images": []
             }
@@ -592,43 +735,39 @@ dayton_steps = {
     }
 }
 
-austin_steps = {
-    "STEP 1 - CAD Cleanup": {
-        "items": [
-            {
-                "title": "Austin CAD cleanup rule",
-                "rule": "Add Austin-specific CAD cleanup rule here.",
-                "details": [
-                    "Add Austin-specific details here."
-                ],
-                "images": ["screenshots/Austin/example.png"]
-            }
-        ]
-    }
-}
+# ---------------- OTHER DIVISION PLACEHOLDERS ---------------- #
 
-charlotte_steps = {
-    "STEP 1 - CAD Cleanup": {
-        "items": [
-            {
-                "title": "Charlotte CAD cleanup rule",
-                "rule": "Add Charlotte-specific CAD cleanup rule here.",
-                "details": [
-                    "Add Charlotte-specific details here."
-                ],
-                "images": ["screenshots/Charlotte/example.png"]
-            }
-        ]
-    }
-}
+cincinnati_dayton_steps = make_placeholder_steps("Cincinnati / Dayton", "Cincinnati_Dayton")
+northern_kentucky_steps = make_placeholder_steps("Northern Kentucky", "Northern_Kentucky")
+columbus_steps = make_placeholder_steps("Columbus", "Columbus")
+indianapolis_steps = make_placeholder_steps("Indianapolis", "Indianapolis")
+louisville_steps = make_placeholder_steps("Louisville", "Louisville")
+viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
+raleigh_steps = make_placeholder_steps("Raleigh", "Raleigh")
+charlotte_steps = make_placeholder_steps("Charlotte", "Charlotte")
+mid_atlantic_steps = make_placeholder_steps("Mid Atlantic", "Mid_Atlantic")
+nashville_steps = make_placeholder_steps("Nashville", "Nashville")
+houston_steps = make_placeholder_steps("Houston", "Houston")
+san_antonio_steps = make_placeholder_steps("San Antonio", "San_Antonio")
+austin_steps = make_placeholder_steps("Austin", "Austin")
 
 # ---------------- DIVISION GUIDE STORAGE ---------------- #
 
 division_guides = {
+    "Cincinnati / Dayton": cincinnati_dayton_steps,
+    "Northern Kentucky": northern_kentucky_steps,
+    "Columbus": columbus_steps,
+    "Indianapolis": indianapolis_steps,
+    "Louisville": louisville_steps,
+    "Viccarone": viccarone_steps,
+    "Raleigh": raleigh_steps,
+    "Charlotte": charlotte_steps,
+    "Mid Atlantic": mid_atlantic_steps,
+    "Nashville": nashville_steps,
+    "Houston": houston_steps,
     "Dallas": dallas_steps,
-    "Dayton": dayton_steps,
-    "Austin": austin_steps,
-    "Charlotte": charlotte_steps
+    "San Antonio": san_antonio_steps,
+    "Austin": austin_steps
 }
 
 # ---------------- SIDEBAR ---------------- #
