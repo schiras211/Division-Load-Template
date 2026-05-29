@@ -648,16 +648,30 @@ with left:
                     else:
                         st.info(f"Screenshot not uploaded yet: {img}")
 
-    if "table" in current_step:
-        st.dataframe(
-            {
-                "Room Type": [row[0] for row in current_step["table"]],
-                "Internal Gains": [row[1] for row in current_step["table"]]
-            },
-            use_container_width=True,
-            hide_index=True
-        )
+if "table" in current_step:
 
+    st.markdown("""
+    <table style="width:100%; border-collapse:collapse; font-size:16px;">
+        <tr style="background:#0099CC; color:white;">
+            <th style="padding:8px; border:1px solid #ccc;">Room Type</th>
+            <th style="padding:8px; border:1px solid #ccc;">Internal Gains</th>
+        </tr>
+
+        <tr><td style="padding:8px; border:1px solid #ccc;">Bedroom</td><td style="padding:8px; border:1px solid #ccc;">1 person</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Owner Suite</td><td style="padding:8px; border:1px solid #ccc;">2 people + Min 500 / Max 1000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Great Room / Family</td><td style="padding:8px; border:1px solid #ccc;">Min 900 / Max 1800</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Kitchen &lt; 3 Large Appliances</td><td style="padding:8px; border:1px solid #ccc;">Min 1200 / Max 2400</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Kitchen &gt; 3 Large Appliances</td><td style="padding:8px; border:1px solid #ccc;">Min 2000 / Max 4000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Bar</td><td style="padding:8px; border:1px solid #ccc;">Min 600 / Max 1200</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Utility / Laundry</td><td style="padding:8px; border:1px solid #ccc;">Min 500 / Max 1000</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Media / Theater</td><td style="padding:8px; border:1px solid #ccc;">Min 1200 / Max 2400</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Loft / Game / Bonus</td><td style="padding:8px; border:1px solid #ccc;">Min 900 / Max 1800</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Study / Library / Office</td><td style="padding:8px; border:1px solid #ccc;">Min 600 / Max 1200</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Exercise</td><td style="padding:8px; border:1px solid #ccc;">Min 600 / Max 1200</td></tr>
+        <tr><td style="padding:8px; border:1px solid #ccc;">Room with Refrigerator / Freezer</td><td style="padding:8px; border:1px solid #ccc;">Add Min 600 / Max 1200</td></tr>
+
+    </table>
+    """, unsafe_allow_html=True)
     st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right:
