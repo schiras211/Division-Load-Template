@@ -110,11 +110,6 @@ img {
     border-radius: 10px;
     border: 1px solid #D0D7DE;
 }
-
-.small-text {
-    font-size: 14px;
-    color: #444;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -310,16 +305,6 @@ steps = {
                     "The goal is to make the base load cover the worst-case option condition."
                 ],
                 "example": "Flex(Study) should include Study BTUH and Study windows if Study is the worst case.",
-                "images": []
-            },
-            {
-                "title": "Add option windows to the base load when needed",
-                "rule": "If the in-lieu room has more or worse windows, put those windows in the base load unless the option will be separated.",
-                "details": [
-                    "Example: Flex has no windows, but Study option has windows.",
-                    "Room name should be Flex(Study).",
-                    "Add the Study windows and the 600 BTUH to that room if Study is the worst case."
-                ],
                 "images": []
             },
             {
@@ -853,32 +838,11 @@ with left:
     st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right:
-    st.markdown("## Screenshot / Reference Area")
+    st.markdown("## Instructions")
 
     st.info(
         "Click any item on the left to expand the Dallas-specific rule, details, examples, warnings, and screenshots."
     )
-
-    st.markdown("### Screenshot File Names Needed")
-
-    screenshot_list = [
-        "screenshots/weather_location.png",
-        "screenshots/energy_star_county.png",
-        "screenshots/bin_city_data.png",
-        "screenshots/weather_station.png",
-        "screenshots/foam_ceiling.png",
-        "screenshots/non_foam_ceiling.png",
-        "screenshots/CAD Conversion.png",
-        "screenshots/CAD Conversion 2.png",
-        "screenshots/do_not_do_this.png",
-        "screenshots/energy_star_fin180p.png"
-    ]
-
-    for shot in screenshot_list:
-        if Path(shot).exists():
-            st.success(f"Uploaded: {shot}")
-        else:
-            st.warning(f"Missing: {shot}")
 
 # ---------------- BUTTONS ---------------- #
 
