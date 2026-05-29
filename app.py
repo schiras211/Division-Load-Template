@@ -138,7 +138,54 @@ st.markdown("""
 # ---------------- DATA ---------------- #
 
 steps = {
-    "STEP 1 - Project Setup & Notes": {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Clean electrical but leave lights and fans",
+                "rule": "Clean as much electrical information as possible, but leave lights and fans.",
+                "details": [
+                    "Lights and fans help with boot placement.",
+                    "Leaving these items makes the design more realistic.",
+                    "Clean unnecessary electrical clutter so the drawing is readable."
+                ],
+                "example": "Leave lights and fans visible so boot placement can be accurate.",
+                "images": ["screenshots/CAD Conversion.png"]
+            },
+            {
+                "title": "Add options into CAD",
+                "rule": "If the project has options, put the options in CAD.",
+                "details": [
+                    "Options are needed for future design.",
+                    "Options also help keep the load accurate.",
+                    "Do not leave options out if they affect the selected load or future design."
+                ],
+                "images": ["screenshots/CAD Conversion 2.png"]
+            },
+            {
+                "title": "Do not create scattered separate files",
+                "rule": "It should be one file with the right elevation and options all in one.",
+                "details": [
+                    "Do not create multiple disconnected files for the same load.",
+                    "The CAD should include the correct elevation and needed options in one file.",
+                    "This keeps future design work cleaner and more accurate."
+                ],
+                "warning": "DO NOT DO THIS AT ALL: Do not make multiple scattered files when one complete file is required.",
+                "images": ["screenshots/do_not_do_this.png"]
+            },
+            {
+                "title": "Only change specific rooms to ambient",
+                "rule": "If the load has a lip, do not change the whole floor to ambient.",
+                "details": [
+                    "Only change the specific rooms that need to be ambient.",
+                    "Do not apply ambient settings across the entire floor unless required."
+                ],
+                "warning": "Do not change the whole floor to ambient. Only adjust the specific rooms needed.",
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
         "items": [
             {
                 "title": "Contact Dallas POC if help is needed",
@@ -222,7 +269,7 @@ steps = {
         ]
     },
 
-    "STEP 2 - Weather, County & Ceiling Setup": {
+    "STEP 3 - Weather, County & Ceiling Setup": {
         "items": [
             {
                 "title": "Select correct weather location",
@@ -284,7 +331,7 @@ steps = {
         ]
     },
 
-    "STEP 3 - Options & In-Lieu Rooms": {
+    "STEP 4 - Options & In-Lieu Rooms": {
         "items": [
             {
                 "title": "Use parentheses for option rooms",
@@ -330,7 +377,7 @@ steps = {
         ]
     },
 
-    "STEP 4 - Room Load Rules": {
+    "STEP 5 - Room Load Rules": {
         "items": [
             {
                 "title": "No blinds on loads",
@@ -393,54 +440,121 @@ steps = {
         ]
     },
 
-    "STEP 5 - CAD Cleanup": {
+    "STEP 6 - Open To Below": {
         "items": [
             {
-                "title": "Clean electrical but leave lights and fans",
-                "rule": "Clean as much electrical information as possible, but leave lights and fans.",
+                "title": "Set OTB only where required",
+                "rule": "Set open to below in required areas only.",
                 "details": [
-                    "Lights and fans help with boot placement.",
-                    "Leaving these items makes the design more realistic.",
-                    "Clean unnecessary electrical clutter so the drawing is readable."
+                    "Verify that the square footage is within range.",
+                    "Preferred OTB area is under 100 sq ft.",
+                    "You may see areas over 100, but ideally keep it under 100 when possible."
                 ],
-                "example": "Leave lights and fans visible so boot placement can be accurate.",
-                "images": ["screenshots/CAD Conversion.png"]
+                "images": []
             },
             {
-                "title": "Add options into CAD",
-                "rule": "If the project has options, put the options in CAD.",
+                "title": "OTB square footage adjustment",
+                "rule": "If square footage is needed, bump the walls out slightly on all floors.",
                 "details": [
-                    "Options are needed for future design.",
-                    "Options also help keep the load accurate.",
-                    "Do not leave options out if they affect the selected load or future design."
+                    "Use small wall adjustments only where needed.",
+                    "Do not over-adjust the drawing.",
+                    "Keep the drawing aligned with the plan as much as possible."
                 ],
-                "images": ["screenshots/CAD Conversion 2.png"]
+                "images": []
             },
             {
-                "title": "Do not create scattered separate files",
-                "rule": "It should be one file with the right elevation and options all in one.",
+                "title": "Remove OTB before equipment selection",
+                "rule": "After OTB is used for square footage, remove it and reset areas before selecting equipment.",
                 "details": [
-                    "Do not create multiple disconnected files for the same load.",
-                    "The CAD should include the correct elevation and needed options in one file.",
-                    "This keeps future design work cleaner and more accurate."
+                    "Set what is upstairs and downstairs in their proper respective areas.",
+                    "Do this before selecting equipment.",
+                    "The OTB is temporary for square footage setup."
                 ],
-                "warning": "DO NOT DO THIS AT ALL: Do not make multiple scattered files when one complete file is required.",
-                "images": ["screenshots/do_not_do_this.png"]
+                "images": []
             },
             {
-                "title": "Only change specific rooms to ambient",
-                "rule": "If the load has a lip, do not change the whole floor to ambient.",
+                "title": "Boot placement for OTB",
+                "rule": "Use OTB for square footage, then turn it back to a regular room.",
                 "details": [
-                    "Only change the specific rooms that need to be ambient.",
-                    "Do not apply ambient settings across the entire floor unless required."
+                    "A boot will be placed on that OTB area.",
+                    "There should be 1 boot up and 1 boot down.",
+                    "This helps the design reflect the actual airflow layout."
                 ],
-                "warning": "Do not change the whole floor to ambient. Only adjust the specific rooms needed.",
                 "images": []
             }
         ]
     },
 
-    "STEP 6 - Equipment Matchups, Airflow & Special Conditions": {
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Beazer blower door setup",
+                "rule": "Use the Beazer infiltration setup when applicable.",
+                "details": [
+                    "Select the fireplace first.",
+                    "Then start the blower door setup.",
+                    "Wind shielding: 3.",
+                    "Select Single @ Test Pressure.",
+                    "Click ACH: 1.5.",
+                    "Enter 50 Pascals @ test pressure difference.",
+                    "For additional help, reference the walkthrough document."
+                ],
+                "images": []
+            },
+            {
+                "title": "D.R. Horton East blower door setup",
+                "rule": "Use D.R. Horton East setup depending on specs.",
+                "details": [
+                    "Select the fireplace first.",
+                    "Then start the blower door setup.",
+                    "Wind shielding: 3.",
+                    "Select Single @ Test Pressure.",
+                    "Click ACH: 3.",
+                    "Enter 50 Pascals @ test pressure difference.",
+                    "For additional help, reference the walkthrough document."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Location and control setup",
+                "rule": "Use location by county and enter the proper control location.",
+                "details": [
+                    "Location: by county.",
+                    "Control Location: Attic/Mech.",
+                    "Confirm county before setting weather and Energy Star details."
+                ],
+                "images": []
+            },
+            {
+                "title": "Fresh air and humidity settings",
+                "rule": "Use Dallas Energy Star fresh air and humidity settings.",
+                "details": [
+                    "Fresh air settings: 20/60.",
+                    "Relative humidity: 30/50.",
+                    "Beazer Estar: 60/60."
+                ],
+                "images": []
+            },
+            {
+                "title": "Fin-180P airflow range",
+                "rule": "The Fin-180P cycle range should be between 130 CFM and 180 CFM.",
+                "details": [
+                    "Round to whichever value you are nearest.",
+                    "Run Time Per Cycle is the only number you can change.",
+                    "Adjust Run Time Per Cycle to stay within the required vent airflow range."
+                ],
+                "warning": "Only change Run Time Per Cycle to stay within range on vent airflow rate.",
+                "images": ["screenshots/energy_star_fin180p.png"]
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
         "items": [
             {
                 "title": "Select correct equipment matchups",
@@ -522,29 +636,7 @@ steps = {
         ]
     },
 
-    "STEP 7 - Internal Gains": {
-        "table": [
-            ["Bedroom", "1 person"],
-            ["Owner Suite", "2 people + Min 500 / Max 1000"],
-            ["Great Room / Family", "Min 900 / Max 1800"],
-            ["Kitchen < 3 Large Appliances", "Min 1200 / Max 2400"],
-            ["Kitchen > 3 Large Appliances", "Min 2000 / Max 4000"],
-            ["Bar", "Min 600 / Max 1200"],
-            ["Utility / Laundry", "Min 500 / Max 1000"],
-            ["Media / Theater", "Min 1200 / Max 2400"],
-            ["Loft / Game / Bonus", "Min 900 / Max 1800"],
-            ["Study / Library / Office", "Min 600 / Max 1200"],
-            ["Exercise", "Min 600 / Max 1200"],
-            ["Add for Room with Refrigerator / Freezer", "Min 600 / Max 1200"]
-        ],
-        "notes": [
-            "Use the Dallas internal gain table when entering room gains.",
-            "Rooms with refrigerators or freezers require an additional internal gain.",
-            "Use the minimum and maximum ranges shown unless the POC directs otherwise."
-        ]
-    },
-
-    "STEP 8 - Equipment Sizing": {
+    "STEP 10 - Equipment Sizing": {
         "items": [
             {
                 "title": "100%-104% total capacity rule",
@@ -600,117 +692,25 @@ steps = {
         ]
     },
 
-    "STEP 9 - Open To Below": {
-        "items": [
-            {
-                "title": "Set OTB only where required",
-                "rule": "Set open to below in required areas only.",
-                "details": [
-                    "Verify that the square footage is within range.",
-                    "Preferred OTB area is under 100 sq ft.",
-                    "You may see areas over 100, but ideally keep it under 100 when possible."
-                ],
-                "images": []
-            },
-            {
-                "title": "OTB square footage adjustment",
-                "rule": "If square footage is needed, bump the walls out slightly on all floors.",
-                "details": [
-                    "Use small wall adjustments only where needed.",
-                    "Do not over-adjust the drawing.",
-                    "Keep the drawing aligned with the plan as much as possible."
-                ],
-                "images": []
-            },
-            {
-                "title": "Remove OTB before equipment selection",
-                "rule": "After OTB is used for square footage, remove it and reset areas before selecting equipment.",
-                "details": [
-                    "Set what is upstairs and downstairs in their proper respective areas.",
-                    "Do this before selecting equipment.",
-                    "The OTB is temporary for square footage setup."
-                ],
-                "images": []
-            },
-            {
-                "title": "Boot placement for OTB",
-                "rule": "Use OTB for square footage, then turn it back to a regular room.",
-                "details": [
-                    "A boot will be placed on that OTB area.",
-                    "There should be 1 boot up and 1 boot down.",
-                    "This helps the design reflect the actual airflow layout."
-                ],
-                "images": []
-            }
-        ]
-    },
-
-    "STEP 10 - Blower Door Settings": {
-        "items": [
-            {
-                "title": "Beazer blower door setup",
-                "rule": "Use the Beazer infiltration setup when applicable.",
-                "details": [
-                    "Select the fireplace first.",
-                    "Then start the blower door setup.",
-                    "Wind shielding: 3.",
-                    "Select Single @ Test Pressure.",
-                    "Click ACH: 1.5.",
-                    "Enter 50 Pascals @ test pressure difference.",
-                    "For additional help, reference the walkthrough document."
-                ],
-                "images": []
-            },
-            {
-                "title": "D.R. Horton East blower door setup",
-                "rule": "Use D.R. Horton East setup depending on specs.",
-                "details": [
-                    "Select the fireplace first.",
-                    "Then start the blower door setup.",
-                    "Wind shielding: 3.",
-                    "Select Single @ Test Pressure.",
-                    "Click ACH: 3.",
-                    "Enter 50 Pascals @ test pressure difference.",
-                    "For additional help, reference the walkthrough document."
-                ],
-                "images": []
-            }
-        ]
-    },
-
-    "STEP 11 - Energy Star": {
-        "items": [
-            {
-                "title": "Location and control setup",
-                "rule": "Use location by county and enter the proper control location.",
-                "details": [
-                    "Location: by county.",
-                    "Control Location: Attic/Mech.",
-                    "Confirm county before setting weather and Energy Star details."
-                ],
-                "images": []
-            },
-            {
-                "title": "Fresh air and humidity settings",
-                "rule": "Use Dallas Energy Star fresh air and humidity settings.",
-                "details": [
-                    "Fresh air settings: 20/60.",
-                    "Relative humidity: 30/50.",
-                    "Beazer Estar: 60/60."
-                ],
-                "images": []
-            },
-            {
-                "title": "Fin-180P airflow range",
-                "rule": "The Fin-180P cycle range should be between 130 CFM and 180 CFM.",
-                "details": [
-                    "Round to whichever value you are nearest.",
-                    "Run Time Per Cycle is the only number you can change.",
-                    "Adjust Run Time Per Cycle to stay within the required vent airflow range."
-                ],
-                "warning": "Only change Run Time Per Cycle to stay within range on vent airflow rate.",
-                "images": ["screenshots/energy_star_fin180p.png"]
-            }
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1 person"],
+            ["Owner Suite", "2 people + Min 500 / Max 1000"],
+            ["Great Room / Family", "Min 900 / Max 1800"],
+            ["Kitchen < 3 Large Appliances", "Min 1200 / Max 2400"],
+            ["Kitchen > 3 Large Appliances", "Min 2000 / Max 4000"],
+            ["Bar", "Min 600 / Max 1200"],
+            ["Utility / Laundry", "Min 500 / Max 1000"],
+            ["Media / Theater", "Min 1200 / Max 2400"],
+            ["Loft / Game / Bonus", "Min 900 / Max 1800"],
+            ["Study / Library / Office", "Min 600 / Max 1200"],
+            ["Exercise", "Min 600 / Max 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min 600 / Max 1200"]
+        ],
+        "notes": [
+            "Use the Dallas internal gain table when entering room gains.",
+            "Rooms with refrigerators or freezers require an additional internal gain.",
+            "Use the minimum and maximum ranges shown unless the POC directs otherwise."
         ]
     },
 
@@ -752,7 +752,20 @@ steps = {
 
 st.sidebar.markdown("## Table of Contents")
 
-step_names = list(steps.keys())
+step_names = [
+    "STEP 1 - CAD Cleanup",
+    "STEP 2 - Project Setup & Notes",
+    "STEP 3 - Weather, County & Ceiling Setup",
+    "STEP 4 - Options & In-Lieu Rooms",
+    "STEP 5 - Room Load Rules",
+    "STEP 6 - Open To Below",
+    "STEP 7 - Blower Door Settings",
+    "STEP 8 - Energy Star",
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions",
+    "STEP 10 - Equipment Sizing",
+    "STEP 11 - Internal Gains",
+    "STEP 12 - Save & Handoff"
+]
 
 if "step_index" not in st.session_state:
     st.session_state.step_index = 0
@@ -779,7 +792,7 @@ with left:
 
     current_step = steps[selected_step]
 
-    if selected_step == "STEP 1 - Project Setup & Notes":
+    if selected_step == "STEP 2 - Project Setup & Notes":
         st.markdown("""
         <div class="note-box">
             IF NEED EXAMPLE OR HELP CONTACT POC. PLEASE DO NOT OVERWORK.
