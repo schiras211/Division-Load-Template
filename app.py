@@ -601,7 +601,7 @@ steps = {
         }
     ]
 }
-```
+
 
 }
 
@@ -631,7 +631,7 @@ with left:
 st.markdown(f""" <div class="step-card"> <div class="step-header">{selected_step}</div> <div class="step-body">
 """, unsafe_allow_html=True)
 
-```
+
 if selected_step == "STEP 1 - Project Setup & Notes":
     st.markdown("""
     <div class="note-box">
