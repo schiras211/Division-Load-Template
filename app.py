@@ -209,7 +209,7 @@ with left:
 with right:
 
     image_map = {
-        "STEP 1 - Start Job & Template": "screenshots/step1.png",
+        "STEP 1 - Start Job & Template": "screenshots/CAD conversion.png",
         "STEP 2 - Weather Setup": "screenshots/step2.png",
         "STEP 3 - Room Load Rules": "screenshots/step3.png",
         "STEP 4 - CAD Cleanup": "screenshots/step4.png",
