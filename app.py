@@ -126,6 +126,9 @@ steps = {
         "Select correct weather station under Bin City Data.",
         "Foam insulation goes under Roof/Ceiling.",
         "Non-foam uses standard ceiling setup."
+        "Test to see if this works"
+        "Hello"
+        "Ok then"
     ],
 
     "STEP 3 - Room Load Rules": [
