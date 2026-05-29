@@ -76,25 +76,6 @@ st.markdown("""
     padding: 25px;
 }
 
-.nav-button {
-    background-color: #003E7E;
-    color: white;
-    border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.top-button {
-    background-color: #FFD62E;
-    color: black;
-    border-radius: 10px;
-    padding: 12px 22px;
-    font-weight: bold;
-    text-align: center;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -126,9 +107,9 @@ steps = {
         "Select correct weather station under Bin City Data.",
         "Foam insulation goes under Roof/Ceiling.",
         "Non-foam uses standard ceiling setup.",
-        "Test to see if this works",
-        "Hello",
-        "Ok then"
+        "Test to see if this works.",
+        "Hello.",
+        "Ok then."
     ],
 
     "STEP 3 - Room Load Rules": [
@@ -167,6 +148,33 @@ steps = {
     ]
 }
 
+image_map = {
+    "STEP 1 - Start Job & Template": [
+        "screenshots/step1.png"
+    ],
+
+    "STEP 2 - Weather Setup": [
+        "screenshots/step2.png"
+    ],
+
+    "STEP 3 - Room Load Rules": [
+        "screenshots/step3.png"
+    ],
+
+    "STEP 4 - CAD Cleanup": [
+        "screenshots/CAD Conversion.png",
+        "screenshots/CAD Conversion 2.png"
+    ],
+
+    "STEP 5 - Equipment Matchups": [
+        "screenshots/step5.png"
+    ],
+
+    "STEP 6 - Equipment Sizing": [
+        "screenshots/step6.png"
+    ]
+}
+
 # ---------------- SIDEBAR ---------------- #
 
 st.sidebar.markdown("## Table of Contents")
@@ -190,7 +198,6 @@ st.session_state.step_index = step_names.index(selected_step)
 left, right = st.columns([1.2, 1])
 
 with left:
-
     st.markdown(f"""
     <div class="step-card">
         <div class="step-header">{selected_step}</div>
@@ -207,25 +214,22 @@ with left:
     st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right:
+    st.markdown("## Screenshot / Reference Area")
 
-    image_map = {
-        "STEP 1 - Start Job & Template": "screenshots/CAD conversion.png",
-        "STEP 2 - Weather Setup": "screenshots/step2.png",
-        "STEP 3 - Room Load Rules": "screenshots/step3.png",
-        "STEP 4 - CAD Cleanup": "screenshots/CAD Conversion.png",
-        "STEP 5 - Equipment Matchups": "screenshots/step5.png",
-        "STEP 6 - Equipment Sizing": "screenshots/step6.png",
-    }
+    images = image_map.get(selected_step, [])
 
-    image_path = image_map.get(selected_step)
+    if len(images) > 0:
+        for img in images:
+            try:
+                st.image(
+                    img,
+                    use_container_width=True
+                )
+            except Exception:
+                st.info(f"Screenshot not uploaded yet: {img}")
+    else:
+        st.info("No screenshots assigned to this step.")
 
-    st.markdown("### Screenshot / Reference Area")
-
-    if image_path:
-        try:
-            st.image(image_path, use_container_width=True)
-        except Exception:
-            st.info(f"Screenshot not uploaded yet: {image_path}")
 # ---------------- BUTTONS ---------------- #
 
 st.markdown("<br>", unsafe_allow_html=True)
