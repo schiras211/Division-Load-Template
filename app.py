@@ -163,7 +163,7 @@ steps = {
 ]
 },
 
-```
+
 "STEP 2 - Weather, County & Ceiling Setup": {
     "items": [
         {
