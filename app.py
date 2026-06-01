@@ -1308,6 +1308,214 @@ dallas_steps = {
     }
 }
 
+# ---------------- NASHVILLE DATA ---------------- #
+
+nashville_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Garage setup",
+                "rule": "Garage should be included.",
+                "details": [
+                    "Garage: Yes.",
+                    "Follow the plan and builder specs when setting up the garage."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Weather location",
+                "rule": "Use Nashville, TN weather location.",
+                "details": [
+                    "City: Nashville, TN.",
+                    "Design City: Nashville Intl.",
+                    "Standard: ASHRAE 2021.",
+                    "Cooling: 92.",
+                    "Heating: 20.",
+                    "Override: No."
+                ],
+                "images": []
+            },
+            {
+                "title": "Structure setup",
+                "rule": "Use Nashville structure defaults unless specs say otherwise.",
+                "details": [
+                    "Knee Walls: Yes.",
+                    "Open to below: If 1 system serving 2 floors, Yes.",
+                    "Open to below: If 2 systems serving 2 floors, No.",
+                    "Outside Air: Yes. See Info Sheet for type. Default is ERV - Balanced.",
+                    "Sloped Ceilings: No.",
+                    "Blinds & Insect Screens: Yes / Yes.",
+                    "Remove blinds/screens from glass doors, sliders, French doors, transom windows, and sidelights."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Duct loss and gain scenarios",
+                "rule": "Use the correct duct loss and gain scenario based on SA and RA location.",
+                "details": [
+                    "Scenario 1: SA Attic / RA Attic.",
+                    "Scenario 2: SA Crawl Space / RA Crawl Space.",
+                    "Scenario 3: SA Attic / RA Conditioned Space.",
+                    "Scenario 4: SA Conditioned Space / RA Conditioned Space.",
+                    "Heat Loss %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sensible Gain %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sealing: Average.",
+                    "Insulation: R-8.",
+                    "Leakage: MJ8."
+                ],
+                "images": []
+            },
+            {
+                "title": "Supply and return configuration",
+                "rule": "Set supply and return configuration based on trunk type.",
+                "details": [
+                    "Supply Configuration should be set to Radial, perimeter outlets when not using rigid trunk line.",
+                    "Supply Configuration should be set to Trunk and branch, perimeter outlets when using rigid trunk line.",
+                    "Return Configuration should always be set to Radial."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Nashville option room rules",
+                "rule": "Add Nashville option and in-lieu room rules here.",
+                "details": [
+                    "Add any builder-specific option, elevation, or in-lieu room rules."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Blinds and insect screens",
+                "rule": "Blinds and insect screens are Yes / Yes with exclusions.",
+                "details": [
+                    "Use blinds and insect screens as default.",
+                    "Remove from glass doors.",
+                    "Remove from sliders.",
+                    "Remove from French doors.",
+                    "Remove from transom windows.",
+                    "Remove from sidelights."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Open to below system rule",
+                "rule": "Use OTB based on how many systems serve the floors.",
+                "details": [
+                    "If 1 system serves 2 floors: Open to below = Yes.",
+                    "If 2 systems serve 2 floors: Open to below = No."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Nashville blower door settings",
+                "rule": "Use builder specs if blower door settings are required.",
+                "details": [
+                    "Add ACH, test pressure, and wind shielding values when provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Outside air setup",
+                "rule": "Outside Air is Yes.",
+                "details": [
+                    "See Info Sheet for type.",
+                    "Default outside air type is ERV - Balanced."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment selection",
+                "rule": "Find equipment matchups before selecting equipment.",
+                "details": [
+                    "Select Outdoor Unit: AC or Heat Pump.",
+                    "Select Furnace for AC system only.",
+                    "Select Electric Heat Strip for HP system only."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Nashville equipment sizing",
+                "rule": "Use selected equipment matchups and Manual S report.",
+                "details": [
+                    "Confirm equipment selection before final reports."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Primary / Owner's Suite", "2p + Min. 500 / Max. 1000"],
+            ["Great Rm / Family Rm", "Min. 900 / Max. 1800"],
+            ["Kitchen - ≤3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen - >3 Large Appliances", "Min. 2000 / Max. 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus Rm", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise / Gym", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "Use Nashville internal gains table.",
+            "Add refrigerator/freezer load when applicable."
+        ]
+    },
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Reports included",
+                "rule": "Include required Nashville reports.",
+                "details": [
+                    "Loads > Short Room Summary.",
+                    "Loads > Multiple Orientations.",
+                    "Loads > Component Constructions: Entire House, not Room by Room, upon request only.",
+                    "Equipment > ACCA Manual S Compliance Report.",
+                    "Duct > System Summary: Manual D only."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 # ---------------- OTHER DIVISION PLACEHOLDERS ---------------- #
 
 northern_kentucky_steps = make_placeholder_steps("Northern Kentucky", "Northern_Kentucky")
@@ -1318,7 +1526,6 @@ viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
 raleigh_steps = make_placeholder_steps("Raleigh", "Raleigh")
 charlotte_steps = make_placeholder_steps("Charlotte", "Charlotte")
 mid_atlantic_steps = make_placeholder_steps("Mid Atlantic", "Mid_Atlantic")
-nashville_steps = make_placeholder_steps("Nashville", "Nashville")
 houston_steps = make_placeholder_steps("Houston", "Houston")
 san_antonio_steps = make_placeholder_steps("San Antonio", "San_Antonio")
 austin_steps = make_placeholder_steps("Austin", "Austin")
