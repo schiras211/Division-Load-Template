@@ -2191,10 +2191,655 @@ columbus_steps = {
 }
 
 # ---------------- OTHER DIVISION PLACEHOLDERS ---------------- #
-indianapolis_steps = make_placeholder_steps("Indianapolis", "Indianapolis")
-louisville_steps = make_placeholder_steps("Louisville", "Louisville")
+# ---------------- INDIANAPOLIS DATA ---------------- #
+
+indianapolis_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Indianapolis CAD setup",
+                "rule": "Use Indianapolis design conditions and construction assumptions unless builder specs override.",
+                "details": [
+                    "Use the Indianapolis volume builder spreadsheet for production home builder-specific load criteria when applicable.",
+                    "Do not use OSB sheathing unless told to do so."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Design conditions",
+                "rule": "Use Indianapolis design conditions.",
+                "details": [
+                    "Weather location: Indianapolis.",
+                    "Outdoor temperatures: Winter = 3 degrees / Summer = 89 degrees.",
+                    "Indoor temperatures: Winter = 75 degrees / Summer = 75 degrees.",
+                    "Temperature differences: Heating = 75 degrees / Cooling = 14 degrees."
+                ],
+                "images": []
+            },
+            {
+                "title": "Infiltration setup",
+                "rule": "Set construction quality to Semi-Tight unless foam conditions apply.",
+                "details": [
+                    "Construction quality is set to Semi-Tight, effective Oct 2023.",
+                    "If the house is spray foamed, use infiltration Tight with encapsulated ceiling."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Duct loss and ceiling",
+                "rule": "Use Indianapolis default duct loss and typical ceiling insulation.",
+                "details": [
+                    "Duct Loss: Default duct loss with flex insulation at R-6 in attic with Notable sealing.",
+                    "Ceiling: R-30 and R-38 insulation are typically used under vented attic with asphalt shingles."
+                ],
+                "images": []
+            },
+            {
+                "title": "Walls, doors, and windows",
+                "rule": "Use Indianapolis typical wall, door, and window assumptions unless specs say otherwise.",
+                "details": [
+                    "Walls: vinyl siding, R-13 cavity batt, 1/2 inch drywall, and exterior board.",
+                    "Use an R-2 exterior board if total wall value is R-19.",
+                    "If walls are 2x6, use R-19 batt insulation if the builder calls for it.",
+                    "Do not use OSB sheathing unless told to do so.",
+                    "Doors: solid wood panel except garage or similar doors, which are metal poly core.",
+                    "Windows: vinyl frame, double pane, operable, clear glass, clear standard Low-E.",
+                    "Salesman will provide U-value and SHGC for better quality windows."
+                ],
+                "images": []
+            },
+            {
+                "title": "Foundation setup",
+                "rule": "Use the correct Indianapolis basement, crawl, or slab assumptions.",
+                "details": [
+                    "Basement: poured wall 8 inches thick.",
+                    "Custom homes: use at least an R-2 board 2 ft below grade.",
+                    "Use the same insulation for finished basement as the rest of the house.",
+                    "Crawl: use crawl space sealed/tight with R-4 wall insulation.",
+                    "Slab: edge insulation of R-5 or R-10 depending on builder."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Study bedroom rule",
+                "rule": "With Energy Star, follow Manual J bedroom rules.",
+                "details": [
+                    "If a Study has a closet and egress window, it is considered a bedroom."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Occupants and appliances",
+                "rule": "Use Indianapolis occupant and appliance assumptions.",
+                "details": [
+                    "Occupants: 2 people in Master and 1 person in each bedroom.",
+                    "Kitchen: 1 appliance at 1200 cfm.",
+                    "Add appliance in Great Room / Living Room at 900 cfm.",
+                    "Add half an appliance, 600 cfm, if a wet bar in the basement has a refrigerator."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Indianapolis OTB setup",
+                "rule": "Use plan-specific open-to-below setup.",
+                "details": [
+                    "Follow the plan and builder requirements for open-to-below areas."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Indianapolis infiltration",
+                "rule": "Use Semi-Tight unless the home is spray foamed.",
+                "details": [
+                    "Construction quality is Semi-Tight.",
+                    "Spray foam homes use Tight infiltration with encapsulated ceiling."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Mechanical ventilation",
+                "rule": "When using mechanical ventilation, refer to the ASHRAE table.",
+                "details": [
+                    "Use ASHRAE fresh air ventilation standards when mechanical ventilation is required.",
+                    "With Energy Star, follow Manual J for bedroom count."
+                ],
+                "images": ["screenshots/Indianapolis/ashrae_fresh_air_table.png"]
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment selection",
+                "rule": "Select equipment by manufacturer and verify capacity.",
+                "details": [
+                    "Choose the system type you are using: gas or electric.",
+                    "Select equipment by manufacturer.",
+                    "Check that performance numbers are over 100% capacity.",
+                    "If performance numbers are not over 100%, size up."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Indianapolis equipment sizing",
+                "rule": "A/C systems are sized based on total cooling load.",
+                "details": [
+                    "A/C equipment is sized based on total cooling load.",
+                    "Check equipment performance numbers are over 100% capacity.",
+                    "If not, size up."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Master Bedroom", "2 people"],
+            ["Bedroom", "1 person"],
+            ["Kitchen", "1 appliance / 1200 cfm"],
+            ["Great Room / Living Room", "Add appliance / 900 cfm"],
+            ["Wet Bar with Refrigerator", "Half appliance / 600 cfm"],
+            ["Study", "Bedroom only if closet and egress window"]
+        ],
+        "notes": [
+            "Use 2 people in Master and 1 person in each bedroom.",
+            "With Energy Star, follow Manual J."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Final review",
+                "rule": "Verify design conditions, construction assumptions, and equipment sizing before handoff.",
+                "details": [
+                    "Confirm Indianapolis weather conditions.",
+                    "Confirm duct loss and infiltration setup.",
+                    "Confirm equipment performance is over 100% capacity."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
+# ---------------- LOUISVILLE DATA ---------------- #
+
+louisville_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Louisville CAD setup",
+                "rule": "Use Louisville construction assumptions unless builder specs override.",
+                "details": [
+                    "Do not use OSB sheathing unless told to do so.",
+                    "Use builder specs when provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Louisville project setup",
+                "rule": "Use Louisville typical project setup unless specs say otherwise.",
+                "details": [
+                    "Use builder-provided weather, wall, window, and equipment specs when available.",
+                    "Follow Manual J and Manual S requirements."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Duct loss and ceiling",
+                "rule": "Use typical Louisville duct loss and ceiling assumptions unless builder specs override.",
+                "details": [
+                    "Duct Loss: Default duct loss with flex insulation at R-6 in attic with Notable sealing.",
+                    "Ceiling: R-38 insulation is typically used under vented attic with asphalt shingles."
+                ],
+                "images": []
+            },
+            {
+                "title": "Walls, doors, and windows",
+                "rule": "Use typical Louisville wall, door, and window assumptions unless specs say otherwise.",
+                "details": [
+                    "Walls: vinyl siding, R-13 cavity batt, 1/2 inch drywall, and exterior board.",
+                    "Use an R-2 exterior board if total wall value is R-19.",
+                    "If walls are 2x6, use R-19 batt insulation if the builder calls for it.",
+                    "Do not use OSB sheathing unless told to do so.",
+                    "Doors: solid wood panel except garage or similar doors, which are metal poly core.",
+                    "Windows: vinyl frame, double pane, operable, clear glass, clear standard Low-E.",
+                    "Salesman will provide U-value and SHGC for better quality windows."
+                ],
+                "images": []
+            },
+            {
+                "title": "Foundation setup",
+                "rule": "Use the correct Louisville basement, crawl, or slab assumptions.",
+                "details": [
+                    "Basement: poured wall 8 inches thick.",
+                    "Custom homes: use at least an R-2 board 2 ft below grade.",
+                    "Use the same insulation for finished basement as the rest of the house.",
+                    "Crawl: use crawl space sealed/tight with R-4 wall insulation.",
+                    "Slab: edge insulation of R-5 or R-10 depending on builder."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Study bedroom rule",
+                "rule": "With Energy Star, follow Manual J bedroom rules.",
+                "details": [
+                    "If a Study has a closet and egress window, it is considered a bedroom."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Occupants and appliances",
+                "rule": "Use Louisville occupant and appliance assumptions unless builder specs override.",
+                "details": [
+                    "Occupants: 2 people in Master and 1 person in each bedroom.",
+                    "Kitchen: 1 appliance at 1200 cfm.",
+                    "Add appliance in Great Room / Living Room at 900 cfm.",
+                    "Add half an appliance, 600 cfm, if a wet bar in the basement has a refrigerator."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Louisville OTB setup",
+                "rule": "Use plan-specific open-to-below setup.",
+                "details": [
+                    "Follow the plan and builder requirements for open-to-below areas."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Louisville infiltration",
+                "rule": "Use builder-specific infiltration values when provided.",
+                "details": [
+                    "Use Semi-Tight when required by builder standards.",
+                    "Spray foam homes may require Tight infiltration with encapsulated ceiling."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Mechanical ventilation",
+                "rule": "When using mechanical ventilation, refer to the ASHRAE table.",
+                "details": [
+                    "Use ASHRAE fresh air ventilation standards when mechanical ventilation is required.",
+                    "With Energy Star, follow Manual J for bedroom count."
+                ],
+                "images": ["screenshots/Louisville/ashrae_fresh_air_table.png"]
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment selection",
+                "rule": "Select equipment by manufacturer and verify capacity.",
+                "details": [
+                    "Choose the system type you are using: gas or electric.",
+                    "Select equipment by manufacturer.",
+                    "Check that performance numbers are over 100% capacity.",
+                    "If performance numbers are not over 100%, size up."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Louisville equipment sizing",
+                "rule": "A/C systems are sized based on total cooling load.",
+                "details": [
+                    "A/C equipment is sized based on total cooling load.",
+                    "Check equipment performance numbers are over 100% capacity.",
+                    "If not, size up."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Master Bedroom", "2 people"],
+            ["Bedroom", "1 person"],
+            ["Kitchen", "1 appliance / 1200 cfm"],
+            ["Great Room / Living Room", "Add appliance / 900 cfm"],
+            ["Wet Bar with Refrigerator", "Half appliance / 600 cfm"],
+            ["Study", "Bedroom only if closet and egress window"]
+        ],
+        "notes": [
+            "Use 2 people in Master and 1 person in each bedroom.",
+            "With Energy Star, follow Manual J."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Final review",
+                "rule": "Verify construction assumptions and equipment sizing before handoff.",
+                "details": [
+                    "Confirm duct loss and infiltration setup.",
+                    "Confirm equipment performance is over 100% capacity.",
+                    "Use builder-specific volume builder criteria when provided."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
-raleigh_steps = make_placeholder_steps("Raleigh", "Raleigh")
+# ---------------- RALEIGH DATA ---------------- #
+
+raleigh_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Garage setup",
+                "rule": "Garage should be included.",
+                "details": [
+                    "Garage: Yes.",
+                    "Follow the plan and builder specs when setting up the garage."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Weather location",
+                "rule": "Use Raleigh, NC weather location.",
+                "details": [
+                    "City: Raleigh, NC.",
+                    "Design City: Raleigh-Durham.",
+                    "Standard: ASHRAE 2021.",
+                    "Cooling: 93.",
+                    "Heating: 24.",
+                    "Override: No."
+                ],
+                "images": []
+            },
+            {
+                "title": "Structure setup",
+                "rule": "Use Raleigh structure defaults unless specs say otherwise.",
+                "details": [
+                    "Knee Walls: Yes.",
+                    "Open to below: If 1 system serving 2 floors, Yes.",
+                    "Open to below: If 2 systems serving 2 floors, No.",
+                    "Outside Air: No. Use outside air only for foam insulation, Energy Star, or if requested in specs.",
+                    "Sloped Ceilings: No.",
+                    "Blinds & Insect Screens: Yes / Yes.",
+                    "Remove blinds/screens from glass doors, sliders, French doors, transom windows, and sidelights.",
+                    "Garage: Yes."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Duct loss and gain scenarios",
+                "rule": "Use the correct duct loss and gain scenario based on SA and RA location.",
+                "details": [
+                    "Scenario 1: SA Attic / RA Attic.",
+                    "Scenario 2: SA Crawl Space / RA Crawl Space.",
+                    "Scenario 3: SA Attic / RA Conditioned Space.",
+                    "Scenario 4: SA Conditioned Space / RA Conditioned Space.",
+                    "Heat Loss %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sensible Gain %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sealing: Average.",
+                    "Insulation: R-8.",
+                    "Leakage: MJ8."
+                ],
+                "images": []
+            },
+            {
+                "title": "Supply and return configuration",
+                "rule": "Set supply and return configuration based on trunk type.",
+                "details": [
+                    "Supply Configuration should be set to Radial, perimeter outlets when not using rigid trunk line.",
+                    "Supply Configuration should be set to Trunk and branch, perimeter outlets when using rigid trunk line.",
+                    "Return Configuration should always be set to Radial."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Raleigh option room rules",
+                "rule": "Add Raleigh option and in-lieu room rules here.",
+                "details": [
+                    "Add any builder-specific option, elevation, or in-lieu room rules."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Window settings in Raleigh",
+                "rule": "Use Raleigh-specific blinds and insect screen settings.",
+                "details": [
+                    "Blinds: 45° light unless it is a 6 ft sliding glass door or transom window.",
+                    "Insect screen: Outdoor.",
+                    "Internal shade: Blinds 45°, light.",
+                    "Internal shade fraction closed: 50.",
+                    "Insect screen coverage: 50%.",
+                    "External sun screen SCss: 1.00."
+                ],
+                "images": []
+            },
+            {
+                "title": "Blinds and insect screens",
+                "rule": "Blinds and insect screens are Yes / Yes with exclusions.",
+                "details": [
+                    "Use blinds and insect screens as default.",
+                    "Remove from glass doors.",
+                    "Remove from sliders.",
+                    "Remove from French doors.",
+                    "Remove from transom windows.",
+                    "Remove from sidelights."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Open to below system rule",
+                "rule": "Use OTB based on how many systems serve the floors.",
+                "details": [
+                    "If 1 system serves 2 floors: Open to below = Yes.",
+                    "If 2 systems serve 2 floors: Open to below = No."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Raleigh blower door settings",
+                "rule": "Use builder specs if blower door settings are required.",
+                "details": [
+                    "Add ACH, test pressure, and wind shielding values when provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Outside air setup",
+                "rule": "Outside Air is No unless required.",
+                "details": [
+                    "Use outside air only for foam insulation, Energy Star, or if requested in specs."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment selection",
+                "rule": "Find equipment matchups before selecting equipment.",
+                "details": [
+                    "Select Outdoor Unit: AC or Heat Pump.",
+                    "Select Furnace for AC system only.",
+                    "Select Electric Heat Strip for HP system only."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Raleigh equipment sizing",
+                "rule": "Use selected equipment matchups and Manual S report.",
+                "details": [
+                    "Confirm equipment selection before final reports."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Primary / Owner's Suite", "2p + Min. 500 / Max. 1000"],
+            ["Great Rm / Family Rm", "Min. 900 / Max. 1800"],
+            ["Kitchen - ≤3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen - >3 Large Appliances", "Min. 2000 / Max. 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus Rm", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise / Gym", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "Use Raleigh internal gains table.",
+            "Add refrigerator/freezer load when applicable."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Reports included",
+                "rule": "Include required Raleigh reports.",
+                "details": [
+                    "Loads > Short Room Summary.",
+                    "Loads > Multiple Orientations.",
+                    "Equipment > ACCA Manual S Compliance Report.",
+                    "Energy > Energy Star Form: separate PDF for Energy Star builders only."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 # ---------------- CHARLOTTE DATA ---------------- #
 
 charlotte_steps = {
@@ -2683,7 +3328,210 @@ houston_steps = {
     }
 }
 
-san_antonio_steps = make_placeholder_steps("San Antonio", "San_Antonio")
+# ---------------- SAN ANTONIO DATA ---------------- #
+
+san_antonio_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "San Antonio project notes",
+                "rule": "Use San Antonio matchups and only model options that affect square footage.",
+                "details": [
+                    "San Antonio Matchups.",
+                    "Select the correct template.",
+                    "No zoning unless requested.",
+                    "Use options that change square footage.",
+                    "Run all loads as perimeter: 3/2/2026."
+                ],
+                "warning": "Run all loads as perimeter: 3/2/2026.",
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Airflow and static pressure",
+                "rule": "Use San Antonio airflow and equipment static pressure values.",
+                "details": [
+                    "350 CFM per ton.",
+                    "The static pressure on the equipment selection screen should be set at .6 for a furnace.",
+                    "The static pressure on the equipment selection screen should be set at .4 for an air handler."
+                ],
+                "images": []
+            },
+            {
+                "title": "Lennox blower power before adding BTUs",
+                "rule": "When adding BTUs to Lennox loads, increase blower power first.",
+                "details": [
+                    "Increase blower power between 500-750 first.",
+                    "Then, if needed, add more BTUs to the load."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "San Antonio setup",
+                "rule": "Use San Antonio project specs and template defaults.",
+                "details": [
+                    "Select the correct template.",
+                    "Consider square feet per ton when picking equipment.",
+                    "Use project-specific weather and construction specs when provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Options and room selection",
+                "rule": "Use worst-case room selection when rooms are named differently but do not change square footage.",
+                "details": [
+                    "Options that change square footage should be included.",
+                    "When choosing rooms to go on a base load, select the worst option when rooms do not change but are named differently.",
+                    "Name the room for example Bed 6/Study."
+                ],
+                "images": []
+            },
+            {
+                "title": "Worst-case windows",
+                "rule": "Select all worst-case windows on the base load where windows can increase in size.",
+                "details": [
+                    "Use worst-case window condition when option windows can increase in size."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "No blinds unless requested",
+                "rule": "Do not use blinds unless requested or mandated.",
+                "details": [
+                    "No blinds unless requested or mandated."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "San Antonio OTB setup",
+                "rule": "Use project-specific open-to-below setup.",
+                "details": [
+                    "Model OTB based on project specs and plan condition."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "San Antonio blower door setup",
+                "rule": "Use builder specs when blower door settings are required.",
+                "details": [
+                    "Add ACH, wind shielding, and test pressure values when provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Energy Star fresh air setup",
+                "rule": "Use county location and correct fresh air location.",
+                "details": [
+                    "Location by county.",
+                    "For the fresh air location, be sure it is Attic or Hall, not Mech.",
+                    "Fresh air is determined with the formula chart."
+                ],
+                "warning": "Fresh air location should be Attic or Hall, not Mech.",
+                "images": ["screenshots/San_Antonio/fresh_air_formula.png"]
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "San Antonio equipment selection",
+                "rule": "Use San Antonio matchups and consider square feet per ton.",
+                "details": [
+                    "Use San Antonio Matchups.",
+                    "Consider square feet per ton when picking equipment.",
+                    "Use 350 CFM per ton.",
+                    "Static pressure: .6 for furnace, .4 for air handler."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "San Antonio sizing",
+                "rule": "Use capacity and square feet per ton to pick equipment.",
+                "details": [
+                    "Consider square feet per ton when picking equipment.",
+                    "Confirm equipment performance and capacity before finalizing."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Owners Suite", "2p + Min 500 / Max 1000"],
+            ["Great Room / Family", "Min. 900 / Max. 1800"],
+            ["Kitchen < 3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen > 3 Large Appliances", "Min. 2000 / Max 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "Use San Antonio internal gains table.",
+            "Add refrigerator/freezer load when applicable."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Save and handoff",
+                "rule": "Save the load. POC will complete the PDF portion.",
+                "details": [
+                    "Save the load after all settings are confirmed.",
+                    "POC will complete the PDF portion."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 
 # ---------------- DIVISION GUIDE STORAGE ---------------- #
 
