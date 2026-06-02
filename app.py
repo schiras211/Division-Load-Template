@@ -1930,9 +1930,267 @@ austin_steps = {
     }
 }
 
-# ---------------- OTHER DIVISION PLACEHOLDERS ---------------- #
+# ---------------- COLUMBUS DATA ---------------- #
 
-columbus_steps = make_placeholder_steps("Columbus", "Columbus")
+columbus_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Garage Setup",
+                "rule": "Draw the garage as a room, then remove it from calculations.",
+                "details": [
+                    "Garage: Yes.",
+                    "Heating: none.",
+                    "Cooling: none.",
+                    "Use this unless stated differently in the Builder Spec Sheet."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Structure Defaults",
+                "rule": "Use Columbus structure defaults unless specs override.",
+                "details": [
+                    "Zone upon request only.",
+                    "Knee Walls: Yes.",
+                    "Open To Below: only if surrounded by closed walls.",
+                    "If open railing exists, do NOT create Open To Below.",
+                    "Outside Air: No.",
+                    "Only use Outside Air for foam insulation, Energy Star, or when requested in specs.",
+                    "Sloped Ceilings: No.",
+                    "Blinds & Insect Screens: blinds on Bedroom, WIC, or Bathroom windows only.",
+                    "Insect screens are left as they are on template.",
+                    "Garage: draw in the room and then remove it from calculations."
+                ],
+                "warning": "Builder Spec Sheet overrides these defaults if it states something different.",
+                "images": []
+            }
+        ]
+    },
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Standard Walls",
+                "rule": "Always verify wall construction.",
+                "details": [
+                    "Do not forget to change your outside wall type if not vinyl.",
+                    "If you have multiple wall types, you may need to use the wall tool.",
+                    "2x4 Wall: R-13 and R-15.",
+                    "2x6 Walls: R-19 and R-21."
+                ],
+                "images": ["screenshots/Columbus/standard_walls.png"]
+            },
+            {
+                "title": "Finished Basement",
+                "rule": "Use proper finished basement setup.",
+                "details": [
+                    "Apply finished basement construction settings.",
+                    "Verify insulation values match plan."
+                ],
+                "images": ["screenshots/Columbus/finished_basement.png"]
+            },
+            {
+                "title": "Unfinished Basement",
+                "rule": "Use unfinished basement settings.",
+                "details": [
+                    "Apply unfinished basement construction settings.",
+                    "Verify wall and floor insulation."
+                ],
+                "images": ["screenshots/Columbus/unfinished_basement.png"]
+            },
+            {
+                "title": "Walkout Basement",
+                "rule": "Use wall tool to override walkout above-grade walls.",
+                "details": [
+                    "If you have a walkout basement, use the wall tool to override the walkout above-grade walls.",
+                    "Walkout walls should not be treated as normal below-grade basement walls."
+                ],
+                "images": ["screenshots/Columbus/walkout_basement.png"]
+            },
+            {
+                "title": "Slab",
+                "rule": "Use slab construction when applicable.",
+                "details": [
+                    "Verify slab edge insulation.",
+                    "Verify perimeter insulation."
+                ],
+                "images": ["screenshots/Columbus/slab.png"]
+            },
+            {
+                "title": "Knee Walls",
+                "rule": "Use the wall tool and Knee Wall tab.",
+                "details": [
+                    "Knee walls are areas with attic on the opposing side.",
+                    "Do not draw the attic in as a room.",
+                    "Take this into account with wall tool, Knee Wall tab.",
+                    "Wrightsoft does not read sloped walls. It deals with 90-degree angles.",
+                    "If you have a sloped roof in an 8 ft room and the knee wall is only 5 ft tall, put the wall tool in at 8 ft tall.",
+                    "If you enter 5 ft, Wrightsoft reads 5 ft of knee wall and 3 ft of regular outside wall."
+                ],
+                "images": [
+                    "screenshots/Columbus/knee_wall_setup.png",
+                    "screenshots/Columbus/knee_wall_example.png"
+                ]
+            }
+        ]
+    },
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Study / Library",
+                "rule": "Study / Library is none unless it qualifies as a bedroom.",
+                "details": [
+                    "Count as a bedroom if it has a closet and egress window.",
+                    "Count as a bedroom if it is listed as optional bedroom."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Internal Gain Rules",
+                "rule": "Use Columbus internal gain values.",
+                "details": [
+                    "Bedroom: 1 person.",
+                    "Owner's Suite: 2 people.",
+                    "Great Room / Family Room: 900 BTU.",
+                    "Kitchen: 1200 BTU.",
+                    "Kitchen with double oven or additional appliances: 2000 BTU.",
+                    "Utility / Laundry: 0 BTU.",
+                    "Media / Theater: 900 BTU.",
+                    "Loft / Game / Bonus Room: 0 BTU.",
+                    "Study / Library: None unless bedroom-qualified."
+                ],
+                "images": []
+            },
+            {
+                "title": "Refrigerator / Freezer Rule",
+                "rule": "Any room with freezer, fridge, or under-counter fridge gets 600 BTU added.",
+                "details": [
+                    "Add 600 BTU to applicable rooms.",
+                    "This is in addition to normal internal gains."
+                ],
+                "images": []
+            },
+            {
+                "title": "Blinds and insect screens",
+                "rule": "Blinds only go on Bedroom, WIC, or Bathroom windows.",
+                "details": [
+                    "Insect screens are left as they are on the template."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Open To Below",
+                "rule": "Only create Open To Below if it is surrounded by closed walls.",
+                "details": [
+                    "If open railing exists, do not create Open To Below."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Blower Door",
+                "rule": "Follow builder requirements.",
+                "details": [
+                    "Use project-specific blower door values.",
+                    "Confirm ACH requirements if provided."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Energy Star",
+                "rule": "Use Energy Star settings when required.",
+                "details": [
+                    "Use Energy Star form upon request.",
+                    "Verify fresh air calculations.",
+                    "Verify county weather data."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment Selection",
+                "rule": "Follow Manual S.",
+                "details": [
+                    "Select proper equipment matchups.",
+                    "Verify heating and cooling capacities.",
+                    "Confirm airflow."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Equipment Sizing",
+                "rule": "Use Manual S sizing requirements.",
+                "details": [
+                    "Verify total capacity.",
+                    "Verify sensible capacity.",
+                    "Confirm selected tonnage."
+                ],
+                "images": []
+            }
+        ]
+    },
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1 Person"],
+            ["Owner's Suite", "2 People"],
+            ["Great Room / Family Room", "900 BTU"],
+            ["Kitchen", "1200 BTU"],
+            ["Kitchen with Double Oven or Additional Appliances", "2000 BTU"],
+            ["Utility / Laundry", "0 BTU"],
+            ["Media / Theater", "900 BTU"],
+            ["Loft / Game / Bonus Room", "0 BTU"],
+            ["Study / Library", "None unless bedroom-qualified"],
+            ["Room with Freezer / Fridge / Under-Counter Fridge", "Add 600 BTU"]
+        ],
+        "notes": [
+            "Study / Library counts as bedroom only if it has a closet and egress window or is listed as optional bedroom.",
+            "Any room that has a freezer, fridge, or under-counter fridge gets 600 BTU added."
+        ]
+    },
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Reports Included",
+                "rule": "Include required reports.",
+                "details": [
+                    "Loads: Short Room Summary.",
+                    "Equipment: ACCA Manual S Compliance Report.",
+                    "Upon Request: Energy Star Form.",
+                    "Upon Request: 310 HVAC Design.",
+                    "LEED requires Energy Star, ACCA 310, and Manual D."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
+# ---------------- OTHER DIVISION PLACEHOLDERS ---------------- #
 indianapolis_steps = make_placeholder_steps("Indianapolis", "Indianapolis")
 louisville_steps = make_placeholder_steps("Louisville", "Louisville")
 viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
