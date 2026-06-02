@@ -3076,7 +3076,225 @@ charlotte_steps = {
     }
 }
 
-mid_atlantic_steps = make_placeholder_steps("Mid Atlantic", "Mid_Atlantic")
+# ---------------- MID ATLANTIC DATA ---------------- #
+
+mid_atlantic_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Base Mid-Atlantic template",
+                "rule": "Use the base Mid-Atlantic template unless a specific template is required.",
+                "details": [
+                    "Make sure to open Wrightsoft Load templates through the Template file path.",
+                    "Always use the highlighted template unless it is stated to use Hagerstown, Manor House, or Montgomery Co.",
+                    "Use the folder path: P:\\CED\\CED Divisional Info."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Structure defaults",
+                "rule": "Use Mid-Atlantic structure defaults unless the project documents say otherwise.",
+                "details": [
+                    "Knee Walls: Yes.",
+                    "Open To Below: No.",
+                    "Outside Air: Yes.",
+                    "Slopes: No.",
+                    "Blinds: No, only leave blinds on bedrooms.",
+                    "Garage: No."
+                ],
+                "images": []
+            },
+            {
+                "title": "Standards and SEER map",
+                "rule": "Follow the standards map for SEER rating because Mid-Atlantic covers many different areas.",
+                "details": [
+                    "Different areas may require different SEER ratings.",
+                    "Confirm the correct standard before selecting equipment."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Attic duct loss rule",
+                "rule": "If the system is in the attic, set duct loss on the floor that the system is supplying.",
+                "details": [
+                    "Set duct location to Vented Attic when the system is in the attic.",
+                    "Apply duct loss to the floor served by that attic system."
+                ],
+                "images": []
+            },
+            {
+                "title": "Pantry and WIC breakout rule",
+                "rule": "Break out certain small rooms when they have window or exterior-wall exposure.",
+                "details": [
+                    "Break out Master Toilet area and WIC when it has a window or 4 feet of exterior wall.",
+                    "If a Pantry or WIC is larger than 50 square feet, break it into its own room as well."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Template exceptions",
+                "rule": "Only use exception templates when stated.",
+                "details": [
+                    "Use Hagerstown, Manor House, or Montgomery Co. templates only when the job states to use them.",
+                    "Otherwise use the highlighted base Mid-Atlantic template."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Blinds rule",
+                "rule": "Blinds are on bedrooms only.",
+                "details": [
+                    "Blinds on bedrooms only: Blinds 45, medium.",
+                    "Set blinds to None for every other window.",
+                    "Structure default: Blinds = No, only leave blinds on bedrooms."
+                ],
+                "images": []
+            },
+            {
+                "title": "Internal BTU rules",
+                "rule": "Use the new Mid-Atlantic internal BTU table.",
+                "details": [
+                    "1p means 1 person and 2p means 2 people.",
+                    "The listed values indicate additional BTUs to be added.",
+                    "Minimum values are standard unless there are extenuating circumstances shown on the plan by the builder that increase load.",
+                    "Examples: significant lighting load, significant appliance additions versus standard, large theater area, multi-person office space, etc.",
+                    "Do not exceed the maximum value."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Open to below default",
+                "rule": "Open To Below is No by default for Mid-Atlantic.",
+                "details": [
+                    "Only adjust if project-specific instructions require it."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Blower door / infiltration",
+                "rule": "Use project-specific Mid-Atlantic requirements when provided.",
+                "details": [
+                    "Follow the template and builder information for infiltration setup.",
+                    "Confirm any Energy Star or outside-air requirements."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Outside air",
+                "rule": "Outside Air is Yes for Mid-Atlantic.",
+                "details": [
+                    "Confirm ventilation requirements based on the job and builder documents.",
+                    "Use the template and divisional information path as the main reference."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment and SEER verification",
+                "rule": "Follow the standards map for SEER rating and verify equipment requirements by area.",
+                "details": [
+                    "Mid-Atlantic covers many different areas, so do not assume one SEER requirement applies to every job.",
+                    "Confirm the correct equipment requirement before final selection."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Equipment sizing",
+                "rule": "Use the correct Mid-Atlantic template and verify final sizing with project requirements.",
+                "details": [
+                    "Confirm selected equipment matches the correct area standard.",
+                    "Use Manual S compliance checks before final handoff."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Owner's Suite", "2p + Min. 500 / Max. 1000"],
+            ["Great Room / Family Room", "Min. 900 / Max. 1800"],
+            ["Kitchen - ≤3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen - >3 Large Appliances", "Min. 2000 / Max. 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus Room", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "1p = 1 person. 2p = 2 people.",
+            "Numbers indicate additional BTUs to be added.",
+            "Minimum values are standard unless the plan shows extenuating circumstances that increase load.",
+            "Do not exceed the maximum value."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Final Mid-Atlantic review",
+                "rule": "Confirm template, blinds, small room breakouts, duct loss, and SEER standard before handoff.",
+                "details": [
+                    "Use the base Mid-Atlantic template unless exception templates are required.",
+                    "Verify blinds are only on bedroom windows.",
+                    "Verify Pantry, WIC, and Master Toilet breakout rules.",
+                    "Verify attic duct loss is assigned to the floor the system serves.",
+                    "Verify the correct SEER standard map requirement."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 # ---------------- HOUSTON DATA ---------------- #
 
 houston_steps = {
