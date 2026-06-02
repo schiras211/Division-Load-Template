@@ -2197,7 +2197,257 @@ viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
 raleigh_steps = make_placeholder_steps("Raleigh", "Raleigh")
 charlotte_steps = make_placeholder_steps("Charlotte", "Charlotte")
 mid_atlantic_steps = make_placeholder_steps("Mid Atlantic", "Mid_Atlantic")
-houston_steps = make_placeholder_steps("Houston", "Houston")
+# ---------------- HOUSTON DATA ---------------- #
+
+houston_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "File handling and save rules",
+                "rule": "Follow Houston folder layout and do not archive files.",
+                "details": [
+                    "Do not archive files.",
+                    "Follow the folders layout.",
+                    "Save by plan number, not by subdivision.",
+                    "Write the square footage from the plans on the job/file notes."
+                ],
+                "images": []
+            },
+            {
+                "title": "Template and matchup source",
+                "rule": "Select the correct Houston template and use Houston matchups.",
+                "details": [
+                    "Houston Matchups.",
+                    "Select the correct template.",
+                    "Get equipment selection from Teams > Texas CED > NRG365 general > Houston match-ups.",
+                    "Alternate path: CED-General > Division Info > select city in Texas you are working in > Houston CED."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Weather and airflow setup",
+                "rule": "Use Houston Hooks weather and 400 CFM per ton.",
+                "details": [
+                    "Weather city: Houston Hooks ASHRAE 2021.",
+                    "Outdoor Temp: 98.",
+                    "Use 400 CFM per ton.",
+                    "Write the square footage from the plans on the job/file notes."
+                ],
+                "images": []
+            },
+            {
+                "title": "Lennox blower power before adding BTUs",
+                "rule": "When adding BTUs to Lennox loads, increase blower power first.",
+                "details": [
+                    "Increase blower power between 500-750 first.",
+                    "Then, if needed, add more BTUs to the load.",
+                    "Try not to add extra BTUs. Place the unit that fits."
+                ],
+                "warning": "Do not add extra BTUs unless needed after blower adjustment.",
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Attic barrier rule",
+                "rule": "Remove attic barrier unless the info sheet says to add it.",
+                "details": [
+                    "Remove attic barrier from the ceiling setup unless the info sheet says to add it.",
+                    "Also remove it from duct loss where you change R-6 to R-8.",
+                    "Use R-8 when required in duct loss setup."
+                ],
+                "images": []
+            },
+            {
+                "title": "Beazer construction specs",
+                "rule": "Use Beazer-specific construction values when applicable.",
+                "details": [
+                    "Custom Ceiling: R-49 / 0.023.",
+                    "Walls: R-19 + R-3.",
+                    "Floors over garage: R-42.",
+                    "Windows: .30 / .22.",
+                    "Knee walls: R-19."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Houston options rule",
+                "rule": "Use options only when they affect the load or equipment sizing.",
+                "details": [
+                    "Do not overwork options that do not affect the selected equipment.",
+                    "Verify square footage, exposure, windows, and tonnage impact before adding extra work."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Texas internal gains",
+                "rule": "Use Texas internal gains for Houston.",
+                "details": [
+                    "Use the Houston/Texas internal gain table in Step 11.",
+                    "Add refrigerator/freezer room gain when applicable."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Houston OTB setup",
+                "rule": "Use project-specific open-to-below setup.",
+                "details": [
+                    "Match the plan condition.",
+                    "Verify square footage before selecting equipment."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Beazer blower door",
+                "rule": "Use Beazer blower door settings when applicable.",
+                "details": [
+                    "Blower Door: Option 3.",
+                    "Test Pressure: 50 Pa.",
+                    "ACH: 1.5."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Energy Star setup",
+                "rule": "Use county location and correct fresh air location.",
+                "details": [
+                    "Location by county.",
+                    "For the fresh air location, be sure it is Attic or Hall, not Mech."
+                ],
+                "warning": "Fresh air location should be Attic or Hall, not Mech.",
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Houston equipment matchups",
+                "rule": "Use Houston matchups and choose equipment based on capacity and square footage per ton.",
+                "details": [
+                    "Use Houston matchups from Teams or CED-General Division Info.",
+                    "Pick equipment that gets as close as possible to 600-700 sq ft per ton for non-foam homes.",
+                    "Pick equipment that gets as close as possible to 700-800 sq ft per ton for foam homes.",
+                    "Stay within the capacity percentage requirements.",
+                    "Try not to add extra BTUs. Place the unit that fits.",
+                    "If at 100%, try the next size up unless square footage is already at 600-700 sq ft per ton.",
+                    "If you have to add BTUs to make the larger size fit, keep the smaller one."
+                ],
+                "images": []
+            },
+            {
+                "title": "Beazer equipment",
+                "rule": "For Beazer, pick variable speed equipment.",
+                "details": [
+                    "Side discharge is variable speed and allows 130% total capacity.",
+                    "Beazer has new equipment."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Capacity goals",
+                "rule": "Use Houston capacity goals by equipment type.",
+                "details": [
+                    "Total: 100%-115%.",
+                    "Sensible: Cannot be below 90%. Goal is 97%-100% when able.",
+                    "2 Stage Total: 100%-120%.",
+                    "2 Stage Sensible: Cannot be below 90%. Goal is 97%-100% when able.",
+                    "Variable Speed Total: 100%-130%.",
+                    "Variable Speed Sensible: Cannot be below 90%. Goal is 97%-100% when able."
+                ],
+                "images": []
+            },
+            {
+                "title": "Square footage per ton check",
+                "rule": "Use square footage per ton as a secondary sizing check.",
+                "details": [
+                    "Non-foam: target as close as possible to 600-700 sq ft per ton.",
+                    "Foam: target as close as possible to 700-800 sq ft per ton.",
+                    "If at 100%, try the next size up unless the square footage per ton is already in range.",
+                    "If the larger unit needs added BTUs to fit, keep the smaller unit."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Owners Suite", "2p + Min 500 / Max 1000"],
+            ["Great Room / Family", "Min. 900 / Max. 1800"],
+            ["Kitchen < 3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen > 3 Large Appliances", "Min. 2000 / Max. 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "Use Houston/Texas internal gains.",
+            "Add refrigerator/freezer load when applicable."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Save and handoff",
+                "rule": "Save the load. POC will complete the PDF portion.",
+                "details": [
+                    "Save by plan number, not by subdivision.",
+                    "Follow the folders layout.",
+                    "Do not archive files.",
+                    "POC will complete the PDF portion."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 san_antonio_steps = make_placeholder_steps("San Antonio", "San_Antonio")
 
 # ---------------- DIVISION GUIDE STORAGE ---------------- #
