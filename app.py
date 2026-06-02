@@ -2195,7 +2195,242 @@ indianapolis_steps = make_placeholder_steps("Indianapolis", "Indianapolis")
 louisville_steps = make_placeholder_steps("Louisville", "Louisville")
 viccarone_steps = make_placeholder_steps("Viccarone", "Viccarone")
 raleigh_steps = make_placeholder_steps("Raleigh", "Raleigh")
-charlotte_steps = make_placeholder_steps("Charlotte", "Charlotte")
+# ---------------- CHARLOTTE DATA ---------------- #
+
+charlotte_steps = {
+    "STEP 1 - CAD Cleanup": {
+        "items": [
+            {
+                "title": "Garage setup",
+                "rule": "Garage should be included.",
+                "details": [
+                    "Garage: Yes.",
+                    "Follow the plan and builder specs when setting up the garage."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 2 - Project Setup & Notes": {
+        "items": [
+            {
+                "title": "Weather location",
+                "rule": "Use the correct Charlotte weather location based on project location.",
+                "details": [
+                    "Charlotte, NC: Design City Charlotte Douglas.",
+                    "Charlotte, NC Standard: ASHRAE 2021.",
+                    "Charlotte, NC 1% Cooling: 92.",
+                    "Charlotte, NC 99% Heating: 25.",
+                    "Charlotte, NC Override: No.",
+                    "All South Carolina: Design City Rock Hill.",
+                    "All South Carolina Standard: ASHRAE 2021.",
+                    "All South Carolina 1% Cooling: 92.",
+                    "All South Carolina 99% Heating: 24.",
+                    "All South Carolina Override: No."
+                ],
+                "images": []
+            },
+            {
+                "title": "Structure setup",
+                "rule": "Use Charlotte structure defaults unless specs say otherwise.",
+                "details": [
+                    "Knee Walls: Yes.",
+                    "Open to below: If 1 system serving 2 floors, Yes.",
+                    "Open to below: If 2 systems serving 2 floors, No.",
+                    "Outside Air: No by default.",
+                    "Use outside air only for foam insulation, Energy Star, or if requested in specs.",
+                    "Sloped Ceilings: No.",
+                    "Blinds & Insect Screens: Yes / Yes.",
+                    "Remove blinds and insect screens from glass doors, sliders, French doors, transom windows, and sidelights.",
+                    "Garage: Yes."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 3 - Weather, County & Ceiling Setup": {
+        "items": [
+            {
+                "title": "Duct loss and gain scenarios",
+                "rule": "Use the correct duct loss and gain scenario based on supply air and return air location.",
+                "details": [
+                    "Scenario 1: Supply Air Attic / Return Air Attic.",
+                    "Scenario 2: Supply Air Crawl Space / Return Air Crawl Space.",
+                    "Scenario 3: Supply Air Attic / Return Air Conditioned Space.",
+                    "Scenario 4: Supply Air Conditioned Space / Return Air Conditioned Space.",
+                    "Heat Loss %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sensible Gain %: Default, except conditioned/conditioned is Default 0%.",
+                    "Sealing: Average.",
+                    "Insulation: R-8.",
+                    "Leakage: MJ8."
+                ],
+                "images": []
+            },
+            {
+                "title": "Supply and return configuration",
+                "rule": "Set supply and return configuration based on trunk type.",
+                "details": [
+                    "Supply Configuration should be set to Radial, perimeter outlets when not using rigid trunk line.",
+                    "Supply Configuration should be set to Trunk and branch, perimeter outlets when using rigid trunk line.",
+                    "Return Configuration should always be set to Radial."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 4 - Options & In-Lieu Rooms": {
+        "items": [
+            {
+                "title": "Charlotte option room rules",
+                "rule": "Add Charlotte option and in-lieu room rules when provided by builder specs.",
+                "details": [
+                    "Use project-specific option, elevation, and in-lieu room requirements.",
+                    "Verify whether options affect tonnage or equipment selection."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 5 - Room Load Rules": {
+        "items": [
+            {
+                "title": "Blinds and insect screens",
+                "rule": "Blinds and insect screens are Yes / Yes with exclusions.",
+                "details": [
+                    "Use blinds and insect screens as default.",
+                    "Remove from glass doors.",
+                    "Remove from sliders.",
+                    "Remove from French doors.",
+                    "Remove from transom windows.",
+                    "Remove from sidelights."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 6 - Open To Below": {
+        "items": [
+            {
+                "title": "Open to below system rule",
+                "rule": "Use Open To Below based on how many systems serve the floors.",
+                "details": [
+                    "If 1 system serves 2 floors: Open to below = Yes.",
+                    "If 2 systems serve 2 floors: Open to below = No."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 7 - Blower Door Settings": {
+        "items": [
+            {
+                "title": "Charlotte blower door settings",
+                "rule": "Use builder specs if blower door settings are required.",
+                "details": [
+                    "Add ACH, test pressure, and wind shielding values when provided.",
+                    "Confirm project-specific infiltration requirements before finalizing the load."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 8 - Energy Star": {
+        "items": [
+            {
+                "title": "Outside air setup",
+                "rule": "Outside Air is No unless required.",
+                "details": [
+                    "Use outside air only for foam insulation.",
+                    "Use outside air for Energy Star.",
+                    "Use outside air if requested in specs."
+                ],
+                "images": []
+            },
+            {
+                "title": "Energy Star report",
+                "rule": "Include Energy Star Form for Energy Star builders only.",
+                "details": [
+                    "Energy > Energy Star Form is a separate PDF for Energy Star builders only."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 9 - Equipment Matchups, Airflow & Special Conditions": {
+        "items": [
+            {
+                "title": "Equipment selection",
+                "rule": "Find matchups before selecting equipment.",
+                "details": [
+                    "Select Outdoor Unit: AC or Heat Pump.",
+                    "Select Furnace for AC system only.",
+                    "Select Electric Heat Strip for HP system only."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 10 - Equipment Sizing": {
+        "items": [
+            {
+                "title": "Charlotte equipment sizing",
+                "rule": "Use selected equipment matchups and Manual S report.",
+                "details": [
+                    "Confirm equipment selection before final reports.",
+                    "Verify Manual S compliance."
+                ],
+                "images": []
+            }
+        ]
+    },
+
+    "STEP 11 - Internal Gains": {
+        "table": [
+            ["Bedroom", "1p"],
+            ["Primary / Owner's Suite", "2p + Min. 500 / Max. 1000"],
+            ["Great Rm / Family Rm", "Min. 900 / Max. 1800"],
+            ["Kitchen - ≤3 Large Appliances", "Min. 1200 / Max. 2400"],
+            ["Kitchen - >3 Large Appliances", "Min. 2000 / Max. 4000"],
+            ["Bar", "Min. 600 / Max. 1200"],
+            ["Utility / Laundry", "Min. 500 / Max. 1000"],
+            ["Media / Theater", "Min. 1200 / Max. 2400"],
+            ["Loft / Game / Bonus Rm", "Min. 900 / Max. 1800"],
+            ["Study / Library / Office", "Min. 600 / Max. 1200"],
+            ["Exercise / Gym", "Min. 600 / Max. 1200"],
+            ["Add for Room with Refrigerator / Freezer", "Min. 600 / Max. 1200"]
+        ],
+        "notes": [
+            "Use Charlotte internal gains table.",
+            "Add refrigerator/freezer load when applicable."
+        ]
+    },
+
+    "STEP 12 - Save & Handoff": {
+        "items": [
+            {
+                "title": "Reports included",
+                "rule": "Include required Charlotte reports.",
+                "details": [
+                    "Loads > Short Room Summary.",
+                    "Loads > Multiple Orientations.",
+                    "Equipment > ACCA Manual S Compliance Report.",
+                    "Energy > Energy Star Form: separate PDF for Energy Star builders only."
+                ],
+                "images": []
+            }
+        ]
+    }
+}
+
 mid_atlantic_steps = make_placeholder_steps("Mid Atlantic", "Mid_Atlantic")
 # ---------------- HOUSTON DATA ---------------- #
 
